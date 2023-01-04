@@ -58,3 +58,5 @@ INNER JOIN `exams` ON `exams`.`id` = `exam_student`.`exam_id`
 INNER JOIN `courses` ON `courses`.`id` = `exams`.`course_id`
 GROUP BY `students`.`id`, `courses`.`id`
 HAVING `voto_massimo` >= 18;
+
+HAVING SUM(CASE WHEN `exam_student`.`vote` >= 18 THEN 1 ELSE 0 END);
